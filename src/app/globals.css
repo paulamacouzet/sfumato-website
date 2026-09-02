@@ -1,26 +1,135 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-poppins: var(--font-poppins);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #FFFFFF;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: #1A1A1A;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: #1A1A1A;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #555555;
+}
+
+p {
+  margin: 0;
+}
+
+section[id], div[id] {
+  scroll-margin-top: 96px;
+}
+
+[data-mq="mobile"] {
+  display: none;
+}
+
+[data-mq="desktop"] {
+  display: block;
+}
+
+@media (max-width: 767px) {
+  [data-mq="desktop"] {
+    display: none;
+  }
+  [data-mq="mobile"] {
+    display: block;
+  }
+}
+
+@keyframes sfSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sfFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sfFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes sfPop {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes sfSfumatoIn {
+  0% {
+    opacity: 0;
+    filter: blur(18px) saturate(0.6);
+    transform: scale(1.012) translateY(10px);
+  }
+  60% {
+    opacity: 1;
+    filter: blur(4px) saturate(0.9);
+    transform: scale(1.002) translateY(2px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0) saturate(1);
+    transform: none;
+  }
+}
+
+@keyframes sfMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes sfObjectIn {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(0.86) translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1) translateY(0);
+  }
 }
