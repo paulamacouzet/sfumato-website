@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLanguage } from "./LanguageContext";
@@ -10,16 +10,29 @@ export function Header() {
   const { lang, setLang, t } = useLanguage();
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+  const [hash, setHash] = useState("");
+
+  useEffect(() => {
+    setHash(window.location.hash);
+    const onHashChange = () => setHash(window.location.hash);
+    window.addEventListener("hashchange", onHashChange);
+    // Also listen to click events on links to update immediately
+    const onClick = () => setTimeout(() => setHash(window.location.hash), 10);
+    window.addEventListener("click", onClick);
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+      window.removeEventListener("click", onClick);
+    };
+  }, []);
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
 
-  const getNavStyle = (path: string, hash?: string) => {
-    // In next.js we might use hash differently, but we simulate the original style logic
-    // We'll keep it simple: if pathname + hash matches, we bold it.
-    // For now, since the original design is a single-page app with hash routing,
-    // and we are splitting into /about, /contact, and / (home).
-    const isActive = pathname === path;
+  const getNavStyle = (path: string, sectionHash?: string) => {
+    const isActive = sectionHash
+      ? pathname === path && hash === sectionHash
+      : pathname === path && (!hash || hash === "");
+
     return {
       color: isActive ? "#1A1A1A" : "#555555",
       fontWeight: isActive ? 500 : 400,

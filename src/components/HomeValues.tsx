@@ -14,7 +14,8 @@ export function HomeValues() {
       if (dk) {
         const dr = dk.getBoundingClientRect();
         const dspan = Math.max(1, dr.height - window.innerHeight);
-        const dp = Math.min(1, Math.max(0, -dr.top / dspan));
+        // Offset by 104px so it starts exactly when the sticky container locks under the header
+        const dp = Math.min(1, Math.max(0, -(dr.top - 104) / dspan));
         if (Math.abs(dp - deckP) > 0.002) setDeckP(dp);
       }
     };
@@ -59,13 +60,13 @@ export function HomeValues() {
         position: "absolute" as const,
         left: "50%",
         top: "4px",
-        height: "min(calc(100% - 24px), 215px)",
+        height: "clamp(240px, 45vh, 480px)",
         aspectRatio: "16 / 10",
         width: "auto",
-        maxWidth: "60%",
+        maxWidth: "85%",
         zIndex: 10 + i,
         transformOrigin: "top center",
-        transform: `translateX(-50%) translate(${landX + (1 - p) * 900}px, ${landY + (1 - p) * 30}px) rotate(${rot + (1 - p) * 8}deg) scale(${(0.96 + p * 0.04).toFixed(3)})`,
+        transform: `translateX(-50%) translate(${landX + (1 - p) * 1800}px, ${landY + (1 - p) * 30}px) rotate(${rot + (1 - p) * 8}deg) scale(${(0.96 + p * 0.04).toFixed(3)})`,
         willChange: "transform",
       },
       imgStyle: {
@@ -89,14 +90,14 @@ export function HomeValues() {
           <div
             style={{
               position: "sticky",
-              top: 0,
-              height: "100vh",
+              top: "104px", // Give some breathing room from the header
+              height: "calc(100vh - 104px)",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
               gap: "32px",
-              padding: "56px 0 40px",
+              padding: "40px 0",
               boxSizing: "border-box",
               overflow: "hidden",
             }}

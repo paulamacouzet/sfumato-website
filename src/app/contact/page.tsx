@@ -11,25 +11,25 @@ export default function Contact() {
       ctKicker: "Contacto",
       ctTitle: "Hablemos de ideas, colaboración y creatividad.",
       reasons: [
-        { text: "Si quieres compartir una historia o recomendar un libro." },
-        { text: "Si buscas colaborar en proyectos creativos o de investigación." },
-        { text: "Si simplemente quieres saludar y ser parte de la comunidad." }
+        { text: "¿Quieres proponerte (o proponer a alguien) como invitado del podcast?" },
+        { text: "¿Tienes una obra para el Domingo de arte que deberíamos mirar juntos?" },
+        { text: "¿Colaboraciones, prensa, festivales, alianzas culturales?" }
       ],
-      boxTitle: "Sfumato Society",
-      boxBody: "Únete a nuestra lista de correo para recibir nuestras crónicas, ensayos visuales y recomendaciones dominicales.",
-      boxCta: "Suscribirme"
+      boxTitle: "¿Buscas solo mantenerte cerca?",
+      boxBody: "Únete a nuestra lista de correo para recibir nuestros audios inmersivos, crónicas y domingos de arte.",
+      boxCta: "Únete a la Society"
     },
     en: {
       ctKicker: "Contact",
       ctTitle: "Let's talk about ideas, collaboration and creativity.",
       reasons: [
-        { text: "If you want to share a story or recommend a book." },
-        { text: "If you are looking to collaborate on creative or research projects." },
-        { text: "If you just want to say hi and be part of the community." }
+        { text: "Looking to pitch yourself or nominate a podcast guest?" },
+        { text: "Have a piece for Art Sunday we should look at together?" },
+        { text: "Collaborations, press, festivals, and cultural partnerships?" }
       ],
-      boxTitle: "Sfumato Society",
-      boxBody: "Join our mailing list to receive our chronicles, visual essays, and Sunday recommendations.",
-      boxCta: "Subscribe"
+      boxTitle: "Just want to stay close?",
+      boxBody: "Join our mailing list to receive our immersive audio, chronicles, and Art Sundays.",
+      boxCta: "Join the Society"
     }
   };
 
