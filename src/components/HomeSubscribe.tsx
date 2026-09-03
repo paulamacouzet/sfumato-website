@@ -10,7 +10,7 @@ export function HomeSubscribe() {
   
   const COPY = {
     es: {
-      joinTitle: "Únete a The Sfumato Society",
+      joinTitle: "Únete a Sfumato Society",
       joinSub: "Recibe crónicas, entrevistas y reflexiones para inspirar tu proceso creativo.",
       emailPlaceholder: "Tu mejor correo electrónico...",
       subscribe: "Suscribirme",
@@ -19,7 +19,7 @@ export function HomeSubscribe() {
       emailError: "Hubo un error. Intenta de nuevo.",
     },
     en: {
-      joinTitle: "Join The Sfumato Society",
+      joinTitle: "Join Sfumato Society",
       joinSub: "Receive chronicles, interviews, and reflections to inspire your creative process.",
       emailPlaceholder: "Your best email...",
       subscribe: "Subscribe",
@@ -49,8 +49,10 @@ export function HomeSubscribe() {
         mode: "no-cors",
         body
       });
-      setStatus("done");
+      setStatus("idle");
       setEmail("");
+      window.location.hash = "#subscribe-success";
+      window.dispatchEvent(new HashChangeEvent("hashchange"));
     } catch (err) {
       setStatus("error");
     }

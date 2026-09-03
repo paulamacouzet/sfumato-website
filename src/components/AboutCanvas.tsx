@@ -13,10 +13,10 @@ const ARTWORKS = [
     title: "The Bedroom",
     link: "https://www.vangoghmuseum.nl/en/collection/s0047v1962",
     top: "18%", left: "12%",
-    questionEs: "¿Dónde empieza el descanso?",
-    answerEs: "El espacio propio, por humilde que sea, es el lienzo donde nuestra mente encuentra paz.",
-    questionEn: "Where does rest begin?",
-    answerEn: "One's own space, however humble, is the canvas where our mind finds peace.",
+    questionEs: "¿Qué significa «hogar»?",
+    answerEs: "He vivido en muchos países (+ de 10!). Pero el hogar siempre está donde habitan las raíces más profundas: en los sabores, la gente, la memoria y la familia. En mi México lindo y querido.",
+    questionEn: "What does \"home\" mean?",
+    answerEn: "I’ve lived in many countries (+10!). But home is always where the deepest roots live: in the flavors, the people, the memory, and family. In my beautiful and beloved Mexico.",
     delay: "-1.2s", duration: "6.5s"
   },
   {
@@ -26,10 +26,10 @@ const ARTWORKS = [
     title: "The Persistence of Memory",
     link: "https://www.moma.org/collection/works/79018",
     top: "32%", left: "20%",
-    questionEs: "¿Qué pasa con el tiempo cuando soñamos?",
-    answerEs: "El tiempo no es rígido; se derrite y moldea a nuestro ritmo interior.",
-    questionEn: "What happens to time when we dream?",
-    answerEn: "Time is not rigid; it melts and molds to our inner rhythm.",
+    questionEs: "¿Mi relación con el tiempo?",
+    answerEs: "A veces soy demasiado consciente de su fragilidad. Pero siempre trato de regresar a las enseñanzas budistas para vivir en el presente.",
+    questionEn: "My relationship with time?",
+    answerEn: "Sometimes I'm too aware of its fragility. But I always try to go back to Buddhist teachings to live in the present.",
     delay: "-3.4s", duration: "5.2s"
   },
   {
@@ -39,10 +39,10 @@ const ARTWORKS = [
     title: "Highland cattle",
     link: "https://www.bonhams.com/auction/23159/lot/19/rosa-bonheur-french-1822-1899-highland-cattle-25-12-x-32-34in-647-x-83cm/",
     top: "44%", left: "10%",
-    questionEs: "¿La belleza de lo salvaje?",
-    answerEs: "Una mirada cruda y honesta a la fuerza de la naturaleza, sin adornos.",
-    questionEn: "The beauty of the wild?",
-    answerEn: "A raw and honest look at the force of nature, unadorned.",
+    questionEs: "¿Algo que me recuerda la grandeza de Dios?",
+    answerEs: "Los seres vivos. Observar la variedad de formas, colores, texturas y sonidos de los animales y las plantas. Me recuerda que hay un gran artista detrás de todo.",
+    questionEn: "Something that reminds me of God's greatness?",
+    answerEn: "Living things. Looking at the variety of shapes, colors, textures, and sounds in animals and plants. It reminds me there's a great artist behind it all.",
     delay: "-0.5s", duration: "7.1s"
   },
   {
@@ -52,10 +52,10 @@ const ARTWORKS = [
     title: "And Then We Saw the Daughter of the Minotaur",
     link: "https://www.moma.org/collection/works/393384",
     top: "48%", left: "29%",
-    questionEs: "¿Con quién tomaría un café imposible?",
-    answerEs: "Con Leonora Carrington, y no diría casi nada: solo escucharía.",
-    questionEn: "Who would I have an impossible coffee with?",
-    answerEn: "Leonora Carrington — and I'd barely speak. Just listen.",
+    questionEs: "¿Qué parte de mí sigue siendo un misterio?",
+    answerEs: "Absolutamente todo. Cuanto más vivo y me conozco, más me doy cuenta de cuántas versiones mías me faltan por descubrir.",
+    questionEn: "What part of me remains a mystery?",
+    answerEn: "Absolutely everything. The more I live and get to know myself, the more I realize how many versions of me are yet to be discovered.",
     delay: "-2.1s", duration: "4.8s"
   },
   {
@@ -65,10 +65,10 @@ const ARTWORKS = [
     title: "Viva la vida, sandías",
     link: "https://www.museofridakahlo.org.mx/frida/?lang=en",
     top: "60%", left: "17%",
-    questionEs: "¿Qué obra me cambió?",
-    answerEs: "«Viva la Vida», de Frida. Pintada mientras se despedía, y aun así una fiesta.",
-    questionEn: "Which artwork changed me?",
-    answerEn: "Frida's «Viva la Vida». Painted as she was saying goodbye, and still a celebration.",
+    questionEs: "¿Qué es la alegría para mí?",
+    answerEs: "Compartir un instante de contemplación: un atardecer, detenerse a mirar un bicho colorido o compartir recetas.",
+    questionEn: "What is joy to me?",
+    answerEn: "Sharing a moment of contemplation: a sunset, stopping to look at a colorful bug, or cooking something yummy together.",
     delay: "-5.0s", duration: "6.2s"
   },
   {
@@ -78,10 +78,10 @@ const ARTWORKS = [
     title: "Le fils de l'homme",
     link: "https://www.christies.com/en/lot/lot-1404203",
     top: "19%", left: "auto", right: "14%",
-    questionEs: "¿Qué oculta lo visible?",
-    answerEs: "Siempre hay algo más detrás de lo obvio. El misterio es lo que nos hace mirar dos veces.",
-    questionEn: "What does the visible hide?",
-    answerEn: "There is always something else behind the obvious. Mystery is what makes us look twice.",
+    questionEs: "¿Mi mayor miedo?",
+    answerEs: "Vivir en piloto automático y olvidar detenerme a apreciar lo cotidiano.",
+    questionEn: "My biggest fear?",
+    answerEn: "Living on autopilot and forgetting to stop and appreciate the everyday.",
     delay: "-1.8s", duration: "5.5s"
   },
   {
@@ -91,10 +91,10 @@ const ARTWORKS = [
     title: "Mujer saliendo del psicoanalista",
     link: "https://mam.inba.gob.mx/destacadas.html#obra41",
     top: "20%", left: "auto", right: "24%",
-    questionEs: "¿Cuál es mi mayor miedo?",
-    answerEs: "Vivir la vida en piloto automático.",
-    questionEn: "What is my biggest fear?",
-    answerEn: "Living life on autopilot.",
+    questionEs: "¿El mayor acto de valentía?",
+    answerEs: "Dejar atrás ideas heredadas y bajarle el volumen al ruido exterior para construir una voz propia (y si eso implica salir de redes sociales, que así sea).",
+    questionEn: "The greatest act of courage?",
+    answerEn: "Leaving inherited ideas behind and turning down the volume of the outside noise to build a voice of my own (and if that means getting off social media, so be it).",
     delay: "-4.2s", duration: "6.8s",
     customScale: 0.75
   },
@@ -105,10 +105,10 @@ const ARTWORKS = [
     title: "Irises",
     link: "https://www.vangoghmuseum.nl/en/collection/s0050v1962#details",
     top: "39%", left: "auto", right: "11%",
-    questionEs: "¿Mi ritual favorito?",
-    answerEs: "Domingo por la mañana, una sola obra, veinte minutos, sin teléfono.",
-    questionEn: "My favourite ritual?",
-    answerEn: "Sunday morning, one artwork, twenty minutes, no phone.",
+    questionEs: "Encuentro arte en...",
+    answerEs: "Los colores de un mercado local, el proceso creativo de cocinar y el diálogo entre las formas y los sabores de un plato.",
+    questionEn: "I find art in...",
+    answerEn: "The colors of a local market, the creative process of cooking, and the dialogue between the shapes and flavors of a dish.",
     delay: "-0.9s", duration: "5.9s"
   },
   {
@@ -118,10 +118,10 @@ const ARTWORKS = [
     title: "Le temps n'a point de rives",
     link: "https://www.christies.com/en/lot/lot-4277079",
     top: "47%", left: "auto", right: "28%",
-    questionEs: "¿El poder del amor?",
-    answerEs: "Nos hace flotar, desafiando la gravedad y la lógica, mezclando sueño y realidad.",
-    questionEn: "The power of love?",
-    answerEn: "It makes us float, defying gravity and logic, mixing dream and reality.",
+    questionEs: "¿Mi mayor fascinación?",
+    answerEs: "Conectar y tener largas conversaciones con personas curiosas.",
+    questionEn: "My biggest fascination?",
+    answerEn: "Connecting and having long conversations with curious people.",
     delay: "-3.7s", duration: "6.1s"
   },
   {
@@ -131,10 +131,10 @@ const ARTWORKS = [
     title: "Cocodrilo",
     link: "https://consejoleonoracarrington.org/obra/escultura-en-bronce/cocodrilo-1999/",
     top: "56%", left: "auto", right: "16%",
-    questionEs: "¿De dónde vienen los mitos?",
-    answerEs: "De nuestra necesidad de entender el mundo, dándole cuerpo a nuestros miedos y maravillas.",
-    questionEn: "Where do myths come from?",
-    answerEn: "From our need to understand the world, giving body to our fears and wonders.",
+    questionEs: "¿Qué me define?",
+    answerEs: "\"Hay tanta diferencia entre nosotros y nosotros mismos como entre nosotros y los demás\" (Montaigne). Es decir, somos una paleta infinita de colores en constante matiz. Lo único que me define es cómo vivo el presente.",
+    questionEn: "What defines me?",
+    answerEn: "\"There is as much difference between us and ourselves as between us and others.\" (Montaigne). In other words, we are an infinite palette of colors in constant nuance. The only thing that defines me is how I live the present.",
     delay: "-2.5s", duration: "5.4s"
   }
 ];
@@ -246,14 +246,14 @@ export function AboutCanvas() {
       </div>
 
       {/* CTA Secondary (Bottom Right) */}
-      <Link href="/contact" className="absolute bottom-[40px] md:bottom-[12vh] right-[8%] md:right-[18%] z-40">
+      <a href="https://paulamacouzet.com" target="_blank" rel="noopener noreferrer" className="absolute bottom-[40px] md:bottom-[12vh] right-[8%] md:right-[18%] z-40">
         <div className="bg-white/90 backdrop-blur border-[1.5px] border-[#1A1A1A] rounded-full px-5 py-2.5 flex items-center gap-2 hover:bg-[#1A1A1A] hover:text-white transition-all duration-200 group">
           <span className="font-medium text-[0.9rem]">
             {lang === "es" ? "Explora mi trabajo" : "Explore my work"}
           </span>
           <span className="text-lg group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">↗</span>
         </div>
-      </Link>
+      </a>
 
       {/* Root Modal Rendering (Fixes stacking context and float animation inheritance) */}
       {activeObj && (() => {

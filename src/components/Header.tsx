@@ -87,14 +87,14 @@ export function Header() {
                 fontSize: "15px",
               }}
             >
-              <Link href="/about" style={getNavStyle("/about")}>
-                {t.navPaula}
+              <Link href="/#values" style={getNavStyle("/", "#values")} className="hover:text-[#1A1A1A]">
+                {t.navValues}
               </Link>
               <Link href="/#series" style={getNavStyle("/", "#series")} className="hover:text-[#1A1A1A]">
                 {t.navSeries}
               </Link>
-              <Link href="/#values" style={getNavStyle("/", "#values")} className="hover:text-[#1A1A1A]">
-                {t.navValues}
+              <Link href="/#the-society" style={getNavStyle("/", "#the-society")} className="hover:text-[#1A1A1A]">
+                {t.navSociety}
               </Link>
             </nav>
             <Link
@@ -126,8 +126,8 @@ export function Header() {
                 fontSize: "15px",
               }}
             >
-              <Link href="/#the-society" style={getNavStyle("/", "#the-society")} className="hover:text-[#1A1A1A]">
-                {t.navSociety}
+              <Link href="/about" style={getNavStyle("/about")}>
+                {t.navPaula}
               </Link>
               <Link href="/contact" style={getNavStyle("/contact")}>
                 {t.navContact}
@@ -224,17 +224,17 @@ export function Header() {
                   animation: "sfSlideDown 0.28s ease both",
                 }}
               >
-                <Link href="/about" onClick={closeMenu} style={{ color: "#1A1A1A" }}>
-                  {t.navPaula}
+                <Link href="/#values" onClick={closeMenu} style={{ color: "#1A1A1A" }}>
+                  {t.navValues}
                 </Link>
                 <Link href="/#series" onClick={closeMenu} style={{ color: "#1A1A1A" }}>
                   {t.navSeries}
                 </Link>
-                <Link href="/#values" onClick={closeMenu} style={{ color: "#1A1A1A" }}>
-                  {t.navValues}
-                </Link>
                 <Link href="/#the-society" onClick={closeMenu} style={{ color: "#1A1A1A" }}>
                   {t.navSociety}
+                </Link>
+                <Link href="/about" onClick={closeMenu} style={{ color: "#1A1A1A" }}>
+                  {t.navPaula}
                 </Link>
                 <Link href="/contact" onClick={closeMenu} style={{ color: "#1A1A1A" }}>
                   {t.navContact}

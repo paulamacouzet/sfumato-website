@@ -30,7 +30,7 @@ export default function Home() {
       societyP1: "Audios inmersivos",
       societyP2: "Ejercicios creativos",
       societyP3: "Notas de la comunidad",
-      societyCta: "Únete a la Society",
+      societyCta: "Únete a Sfumato Society",
       date: "Octubre 2026",
     },
     en: {
@@ -52,7 +52,7 @@ export default function Home() {
       societyP1: "Immersive audio",
       societyP2: "Creative exercises",
       societyP3: "Community notes",
-      societyCta: "Join the Society",
+      societyCta: "Join Sfumato Society",
       date: "October 2026",
     }
   };
@@ -68,7 +68,7 @@ export default function Home() {
   return (
     <main style={{ width: "100%" }}>
       {/* Hero Section */}
-      <section style={{ width: "100%", background: "#f8f6ee", color: "#1A1A1A", padding: "72px 0 88px" }}>
+      <section style={{ width: "100%", minHeight: "100vh", display: "flex", alignItems: "center", background: "#f8f6ee", color: "#1A1A1A", padding: "72px 0 88px" }}>
         <div style={{ width: "100%", maxWidth: "1320px", boxSizing: "border-box", margin: "0 auto", padding: "0 28px" }}>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
             <div style={{ width: "100%", maxWidth: "640px", height: "clamp(88px,15vw,150px)", position: "relative" }}>
@@ -179,13 +179,11 @@ export default function Home() {
           <div style={{ maxWidth: "600px", margin: "0 auto 40px", textAlign: "center", display: "flex", flexDirection: "column", gap: "12px" }}>
             {lang === "es" ? (
               <>
-                <p style={{ margin: 0, fontSize: "12px", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8A8A8A" }}>Si llegaste hasta aquí, eres de los nuestros…</p>
-                <h3 style={{ margin: 0, fontSize: "clamp(23px,3.2vw,31px)", fontWeight: 500, lineHeight: 1.3, letterSpacing: "-0.01em", textWrap: "pretty" }}>¡Esto no es un monólogo, somos una tribu!</h3>
+                <p style={{ margin: 0, fontSize: "14px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#8A8A8A", textAlign: "center" }}>Si llegaste hasta aquí, eres de los nuestros…</p>
               </>
             ) : (
               <>
-                <p style={{ margin: 0, fontSize: "12px", letterSpacing: "0.18em", textTransform: "uppercase", color: "#8A8A8A" }}>If you made it this far, you're one of us…</p>
-                <h3 style={{ margin: 0, fontSize: "clamp(23px,3.2vw,31px)", fontWeight: 500, lineHeight: 1.3, letterSpacing: "-0.01em", textWrap: "pretty" }}>This isn't a monologue: we are a tribe!</h3>
+                <p style={{ margin: 0, fontSize: "14px", letterSpacing: "0.12em", textTransform: "uppercase", color: "#8A8A8A", textAlign: "center" }}>If you made it this far, you're one of us…</p>
               </>
             )}
           </div>
@@ -195,7 +193,7 @@ export default function Home() {
               margin: "0 auto",
               border: "1.5px solid #1A1A1A",
               borderRadius: "28px",
-              padding: "clamp(32px,6vw,64px)",
+              padding: "clamp(48px,8vw,64px) clamp(32px,6vw,64px) clamp(32px,6vw,48px)",
               background: "#FFFFFF",
               display: "flex",
               flexDirection: "column",
@@ -204,18 +202,25 @@ export default function Home() {
               textAlign: "center",
             }}
           >
-            <h2 style={{ margin: 0, maxWidth: "620px", fontSize: "clamp(24px,3.4vw,34px)", fontWeight: 600, lineHeight: 1.25, letterSpacing: "-0.01em", textWrap: "pretty" }}>{copy.societyTitle}</h2>
-            <p style={{ maxWidth: "560px", fontSize: "15px", lineHeight: 1.7, color: "#555555", textWrap: "pretty" }}>{copy.societyBody}</p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "12px", justifyContent: "center", marginTop: "8px" }}>
-              <span style={{ padding: "8px 18px", border: "1.5px solid #1A1A1A", borderRadius: "999px", fontSize: "13px" }}>{copy.societyP1}</span>
-              <span style={{ padding: "8px 18px", border: "1.5px solid #1A1A1A", borderRadius: "999px", fontSize: "13px" }}>{copy.societyP2}</span>
-              <span style={{ padding: "8px 18px", border: "1.5px solid #1A1A1A", borderRadius: "999px", fontSize: "13px" }}>{copy.societyP3}</span>
+            <div style={{ position: "relative", width: "100%", maxWidth: "340px", height: "clamp(120px, 16vw, 180px)", margin: "0 auto" }}>
+              <img src="/assets/tribu_stars/tribu_1.png" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "sfTribuStars 1.4s infinite steps(1)", animationDelay: "0s" }} alt="" />
+              <img src="/assets/tribu_stars/tribu_2.png" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "sfTribuStars 1.4s infinite steps(1)", animationDelay: "0.35s", opacity: 0 }} alt="" />
+              <img src="/assets/tribu_stars/tribu_3.png" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "sfTribuStars 1.4s infinite steps(1)", animationDelay: "0.7s", opacity: 0 }} alt="" />
+              <img src="/assets/tribu_stars/tribu_4.png" style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", animation: "sfTribuStars 1.4s infinite steps(1)", animationDelay: "1.05s", opacity: 0 }} alt="" />
             </div>
-            <Link
+            <h2 style={{ margin: "12px auto 0", textAlign: "center", maxWidth: "620px", fontSize: "clamp(24px,3.4vw,34px)", fontWeight: 600, lineHeight: 1.25, letterSpacing: "-0.01em", textWrap: "pretty" }}>{copy.societyTitle}</h2>
+            <p style={{ margin: "0 auto", textAlign: "center", maxWidth: "560px", fontSize: "15px", lineHeight: 1.7, color: "#555555", textWrap: "pretty" }}>{copy.societyBody}</p>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px", width: "100%", maxWidth: "620px", margin: "16px auto 16px auto" }}>
+              <span className="flex items-center justify-center text-center px-2 py-2.5 border-[1.5px] border-[#1A1A1A] rounded-full text-[13px] hover:bg-[#bdac40] hover:border-[#bdac40] hover:text-[#ffffff] transition-all duration-300 cursor-default bg-transparent">{copy.societyP1}</span>
+              <span className="flex items-center justify-center text-center px-2 py-2.5 border-[1.5px] border-[#1A1A1A] rounded-full text-[13px] hover:bg-[#718650] hover:border-[#718650] hover:text-[#ffffff] transition-all duration-300 cursor-default bg-transparent">{copy.societyP2}</span>
+              <span className="flex items-center justify-center text-center px-2 py-2.5 border-[1.5px] border-[#1A1A1A] rounded-full text-[13px] hover:bg-[#b14a8b] hover:border-[#b14a8b] hover:text-[#ffffff] transition-all duration-300 cursor-default bg-transparent">{copy.societyP3}</span>
+            </div>
+            <a
               href="#subscribe"
               className="hover:bg-transparent hover:text-[#1A1A1A]"
               style={{
-                marginTop: "16px",
+                margin: "0 auto",
+                marginTop: "8px",
                 display: "inline-flex",
                 alignItems: "center",
                 height: "48px",
@@ -230,7 +235,7 @@ export default function Home() {
               }}
             >
               {copy.societyCta}
-            </Link>
+            </a>
           </div>
         </div>
       </section>

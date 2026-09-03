@@ -155,3 +155,10 @@ section[id], div[id] {
 .pop-modal {
   animation: pop-modal-in 180ms ease-out forwards;
 }
+
+@keyframes sfTribuStars {
+  0% { opacity: 1; }
+  25% { opacity: 1; }
+  25.01% { opacity: 0; }
+  100% { opacity: 0; }
+}

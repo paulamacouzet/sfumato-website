@@ -1,10 +1,11 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useLanguage } from "../../components/LanguageContext";
 
 export default function Contact() {
   const { lang } = useLanguage();
+  const [copied, setCopied] = useState(false);
 
   const COPY = {
     es: {
@@ -17,7 +18,7 @@ export default function Contact() {
       ],
       boxTitle: "¿Buscas solo mantenerte cerca?",
       boxBody: "Únete a nuestra lista de correo para recibir nuestros audios inmersivos, crónicas y domingos de arte.",
-      boxCta: "Únete a la Society"
+      boxCta: "Únete a Sfumato Society"
     },
     en: {
       ctKicker: "Contact",
@@ -29,7 +30,7 @@ export default function Contact() {
       ],
       boxTitle: "Just want to stay close?",
       boxBody: "Join our mailing list to receive our immersive audio, chronicles, and Art Sundays.",
-      boxCta: "Join the Society"
+      boxCta: "Join Sfumato Society"
     }
   };
 
@@ -54,9 +55,14 @@ export default function Contact() {
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", gap: "28px" }}>
-          <a
-            href="mailto:hola@sfumatosociety.com"
-            className="hover:bg-[#FAFAFA]"
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              navigator.clipboard.writeText("paulamacouzet@gmail.com");
+              setCopied(true);
+              setTimeout(() => setCopied(false), 2000);
+            }}
+            className="hover:bg-[#FAFAFA] group relative text-left"
             style={{
               display: "flex",
               flexDirection: "column",
@@ -68,8 +74,19 @@ export default function Contact() {
             }}
           >
             <span style={{ fontSize: "12px", letterSpacing: "0.14em", textTransform: "uppercase", color: "#555555" }}>Email</span>
-            <span style={{ fontSize: "clamp(16px, 2.2vw, 20px)", fontWeight: 500, wordBreak: "break-word" }}>hola@sfumatosociety.com</span>
-          </a>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
+              <span style={{ fontSize: "clamp(16px, 2vw, 20px)", fontWeight: 500, wordBreak: "break-word" }}>paulamacouzet@gmail.com</span>
+              <div className="opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2 rounded-full bg-[#1A1A1A]/5 hover:bg-[#1A1A1A]/10">
+                {copied ? (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#2A9D8F" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                ) : (
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                )}
+              </div>
+            </div>
+            {/* Absolute invisible mailto link for SEO/crawlers/right-click */}
+            <a href="mailto:paulamacouzet@gmail.com" className="absolute inset-0 opacity-0 cursor-pointer" aria-label="Send email" />
+          </button>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))", gap: "16px" }}>
             <a
               href="https://www.instagram.com/sfumatosociety/"

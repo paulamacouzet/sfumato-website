@@ -30,6 +30,9 @@ export function Footer() {
     >
       <span>© 2026 Sfumato Society</span>
       <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
+        <a href="mailto:paulamacouzet@gmail.com" style={{ color: "#1A1A1A" }}>
+          Email
+        </a>
         <Link href="/about" style={{ color: "#1A1A1A" }}>
           {t.navPaula}
         </Link>
