@@ -31,35 +31,13 @@ export function HomeSubscribe() {
   
   const t = COPY[lang === "en" ? "en" : "es"];
 
-  const subscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const subscribe = () => {
     if (!email.trim()) return;
-    
-    setStatus("loading");
-    
-    const body = new URLSearchParams({
-      email: email.trim(),
-      first_url: "https://sfumatosociety.substack.com",
-      domain: "sfumatosociety.substack.com"
-    });
-    
-    try {
-      await fetch("https://sfumatosociety.substack.com/api/v1/free", {
-        method: "POST",
-        mode: "no-cors",
-        body
-      });
-      setStatus("idle");
-      setEmail("");
-      window.location.hash = "#subscribe-success";
-      window.dispatchEvent(new HashChangeEvent("hashchange"));
-    } catch (err) {
-      setStatus("error");
-    }
+    setStatus("done");
   };
 
   return (
-    <section style={{ width: "100%", background: "#f8f6ee", color: "#1A1A1A", marginTop: "104px", padding: "88px 0" }}>
+    <section style={{ width: "100%", background: "#f8f6ee", color: "#1A1A1A", marginTop: "64px", padding: "64px 0" }}>
       <div style={{ width: "100%", maxWidth: "1320px", boxSizing: "border-box", margin: "0 auto", padding: "0 28px" }}>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <div id="subscribe" style={{ width: "100%", maxWidth: "480px", textAlign: "center" }}>
@@ -67,18 +45,28 @@ export function HomeSubscribe() {
             <p style={{ margin: "12px 0 0", fontSize: "14px", lineHeight: 1.7, color: "#555555", textWrap: "pretty" }}>{t.joinSub}</p>
             
             {status === "idle" && (
-              <form onSubmit={subscribe} style={{ marginTop: "24px", display: "flex", flexWrap: "wrap", gap: "10px", justifyContent: "center" }}>
+              <form 
+                action="https://sfumatosociety.substack.com/api/v1/free?nojs=true"
+                method="post"
+                target="_blank"
+                onSubmit={subscribe}
+                style={{ marginTop: "24px", position: "relative", display: "flex", justifyContent: "center" }}
+              >
+                <input type="hidden" name="first_url" value="https://sfumatosociety.substack.com" />
+                <input type="hidden" name="first_referrer" value="https://sfumatosociety.substack.com" />
+                <input type="hidden" name="current_url" value="https://sfumatosociety.substack.com" />
+                <input type="hidden" name="current_referrer" value="https://sfumatosociety.substack.com" />
                 <input
                   type="email"
+                  name="email"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t.emailPlaceholder}
                   style={{
-                    flex: "1 1 240px",
-                    minWidth: 0,
-                    height: "48px",
-                    padding: "0 18px",
+                    width: "100%",
+                    height: "56px",
+                    padding: "0 140px 0 24px",
                     fontFamily: "var(--font-poppins)",
                     fontSize: "14px",
                     color: "#1A1A1A",
@@ -90,19 +78,21 @@ export function HomeSubscribe() {
                 />
                 <button
                   type="submit"
-                  className="hover:bg-transparent hover:text-[#1A1A1A]"
                   style={{
-                    height: "48px",
-                    padding: "0 28px",
+                    position: "absolute",
+                    right: "6px",
+                    top: "6px",
+                    height: "44px",
+                    padding: "0 24px",
                     fontFamily: "var(--font-poppins)",
                     fontSize: "14px",
-                    fontWeight: 500,
-                    color: "#FFFFFF",
+                    fontWeight: 600,
+                    color: "#f8f6ee",
                     background: "#1A1A1A",
-                    border: "1.5px solid #1A1A1A",
+                    border: "none",
                     borderRadius: "999px",
                     cursor: "pointer",
-                    transition: "background .24s ease, color .24s ease",
+                    transition: "all .24s ease",
                   }}
                 >
                   {t.subscribe}

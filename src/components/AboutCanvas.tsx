@@ -153,23 +153,36 @@ export function AboutCanvas() {
 
   return (
     <div 
-      className="relative w-full h-[100vh] min-h-[800px] overflow-hidden flex flex-col md:block bg-white"
+      className="relative w-full h-[100dvh] min-h-[700px] md:h-[100vh] md:min-h-[800px] overflow-hidden flex flex-col md:block bg-white pt-6 md:pt-[20px]"
       onClick={() => setActiveObj(null)}
-      style={{
-        // Give space for the header
-        paddingTop: "20px"
-      }}
     >
+      <style>{`
+        .art-obj-wrapper {
+          position: relative;
+          top: auto !important;
+          left: auto !important;
+          right: auto !important;
+        }
+        @media (min-width: 768px) {
+          .art-obj-wrapper {
+            position: absolute;
+            top: var(--md-top) !important;
+            left: var(--md-left) !important;
+            right: var(--md-right) !important;
+          }
+        }
+      `}</style>
+
       {/* Intro text */}
-      <div className="md:absolute md:top-[2vh] md:left-1/2 md:-translate-x-1/2 flex flex-col items-center z-20 px-6 max-w-[540px] pointer-events-none mt-4 md:mt-0 text-center mx-auto relative">
-        <div className="mb-6">
+      <div className="md:absolute md:top-[2vh] md:left-1/2 md:-translate-x-1/2 flex flex-col items-center z-20 px-6 max-w-[540px] md:pointer-events-none text-center mx-auto relative flex-shrink shrink-0 w-full">
+        <div className="mb-4 md:mb-6 shrink-0">
           {lang === "es" ? (
-             <Image src="/assets/hola-soy-paula-es.png" alt="Hola soy Paula" width={360} height={120} className="w-auto h-14 md:h-[72px] object-contain" />
+             <Image src="/assets/hola-soy-paula-es.png" alt="Hola soy Paula" width={360} height={120} className="w-auto h-12 md:h-[72px] object-contain" />
           ) : (
-             <Image src="/assets/hola-soy-paula-en.png" alt="Hi I'm Paula" width={360} height={120} className="w-auto h-14 md:h-[72px] object-contain" />
+             <Image src="/assets/hola-soy-paula-en.png" alt="Hi I'm Paula" width={360} height={120} className="w-auto h-12 md:h-[72px] object-contain" />
           )}
         </div>
-        <p className="text-[#555555] text-[15px] md:text-[16px] leading-[1.65] mb-2 text-pretty">
+        <p className="text-[#555555] text-[14px] md:text-[16px] leading-[1.65] mb-2 text-pretty">
           {lang === "es" ? (
             <>
               Nunca me acomodó una sola etiqueta; Así que, inspirada por el espíritu del polímata renacentista, decidí aprender y crear conectando diferentes mundos.
@@ -190,43 +203,33 @@ export function AboutCanvas() {
         </p>
       </div>
 
-      {/* Paula portrait */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 w-[75vw] max-w-[400px] md:w-[30vw] md:max-w-[480px]">
-        <Image 
-          src="/assets/paula-portrait.webp" 
-          alt="Paula Portrait" 
-          width={480} 
-          height={600} 
-          className="w-full h-auto object-contain block"
-          style={{ marginBottom: "0px", display: "block" }} // Anclaje estricto a la base
-          priority
-        />
-      </div>
-
-      {/* Floating Objects Container */}
-      <div className="absolute inset-0 z-30 pointer-events-none" style={{ top: "30px" }}>
+      {/* Floating Objects Container (Swipe on mobile) */}
+      <div 
+        className="w-full flex-shrink-0 h-[140px] md:h-auto md:absolute md:inset-0 z-30 pointer-events-auto md:pointer-events-none mt-4 md:mt-0 flex md:block overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none hide-scrollbar items-center px-6 gap-6 md:gap-0"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
         {ARTWORKS.map((art) => (
           <div
             key={art.id}
-            className={`float-obj group absolute pointer-events-auto ${activeObj === art.id ? 'z-[60]' : 'z-30'}`}
+            className={`art-obj-wrapper float-obj group pointer-events-auto flex-shrink-0 snap-center md:snap-align-none ${activeObj === art.id ? 'z-[60]' : 'z-30'}`}
             style={{
-              top: art.top,
-              left: art.left,
-              right: art.right,
+              "--md-top": art.top,
+              "--md-left": art.left || "auto",
+              "--md-right": art.right || "auto",
               animation: `subtle-float ${art.duration} ease-in-out ${art.delay} infinite alternate`
-            }}
+            } as React.CSSProperties}
             onClick={(e) => {
               e.stopPropagation();
               setActiveObj(art.id === activeObj ? null : art.id);
             }}
           >
-            <div className="transition-transform duration-200 group-hover:scale-[1.08]">
+            <div className="transition-transform duration-200 group-hover:scale-[1.08] flex justify-center items-center h-[120px] w-auto">
               <Image 
                 src={art.src}
                 alt={art.title}
                 width={120}
                 height={120}
-                className="w-14 md:w-20 lg:w-24 h-auto"
+                className="w-16 md:w-20 lg:w-24 h-auto object-contain"
                 style={art.customScale ? { transform: `scale(${art.customScale})` } : undefined}
               />
             </div>
@@ -234,9 +237,22 @@ export function AboutCanvas() {
         ))}
       </div>
 
-      {/* Tap Instruction (Left side of portrait) */}
-      <div className="absolute bottom-[40px] md:bottom-[12vh] left-[8%] md:left-[18%] z-40 text-left max-w-[160px]">
-        <p className="text-[#1A1A1A] font-medium opacity-50 text-[12px] md:text-[13px] leading-[1.4] italic">
+      {/* Paula portrait */}
+      <div className="mt-auto md:mt-0 flex-shrink-0 md:absolute md:bottom-0 md:left-1/2 md:-translate-x-1/2 z-10 w-[85vw] max-w-[340px] md:w-[30vw] md:max-w-[480px] self-center">
+        <Image 
+          src="/assets/paula-portrait.webp" 
+          alt="Paula Portrait" 
+          width={480} 
+          height={600} 
+          className="w-full h-auto object-contain block"
+          style={{ marginBottom: "0px", display: "block" }} 
+          priority
+        />
+      </div>
+
+      {/* Tap Instruction (Desktop Only) */}
+      <div className="hidden md:block absolute md:bottom-[12vh] md:left-[18%] z-40 text-left max-w-[160px]">
+        <p className="text-[#1A1A1A] font-medium opacity-50 text-[13px] leading-[1.4] italic">
           {lang === "es" ? (
             <>Toca los objetos para explorar mi archivo personal.</>
           ) : (
@@ -245,67 +261,67 @@ export function AboutCanvas() {
         </p>
       </div>
 
-      {/* CTA Secondary (Bottom Right) */}
-      <a href="https://paulamacouzet.com" target="_blank" rel="noopener noreferrer" className="absolute bottom-[40px] md:bottom-[12vh] right-[8%] md:right-[18%] z-40">
-        <div className="bg-white/90 backdrop-blur border-[1.5px] border-[#1A1A1A] rounded-full px-5 py-2.5 flex items-center gap-2 hover:bg-[#1A1A1A] hover:text-white transition-all duration-200 group">
-          <span className="font-medium text-[0.9rem]">
+      {/* CTA Secondary */}
+      <a href="https://paulamacouzet.com" target="_blank" rel="noopener noreferrer" className="absolute bottom-[24px] right-[24px] md:bottom-[12vh] md:right-[18%] z-40">
+        <div className="bg-white/90 backdrop-blur border-[1.5px] border-[#1A1A1A] rounded-full px-4 py-2 md:px-5 md:py-2.5 flex items-center gap-2 hover:bg-[#1A1A1A] hover:text-white transition-all duration-200 group shadow-md md:shadow-none">
+          <span className="font-medium text-[0.8rem] md:text-[0.9rem]">
             {lang === "es" ? "Explora mi trabajo" : "Explore my work"}
           </span>
-          <span className="text-lg group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">↗</span>
+          <span className="text-md md:text-lg group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">↗</span>
         </div>
       </a>
 
-      {/* Root Modal Rendering (Fixes stacking context and float animation inheritance) */}
+      {/* Root Modal Rendering */}
       {activeObj && (() => {
         const art = ARTWORKS.find(a => a.id === activeObj);
         if (!art) return null;
+        
         return (
-          <div 
-            className="pop-modal fixed md:absolute bg-white p-[20px] md:p-[24px] rounded-[14px] shadow-[0_12px_24px_rgba(0,0,0,0.12)] border-[1px] border-[#1A1A1A] w-[calc(100vw-40px)] left-[20px] md:w-[280px] md:left-auto z-[100] cursor-default pointer-events-auto"
-            style={{
-              top: `calc(${art.top} + 48px)`, // Offset roughly to center of object
-              transform: "translateY(-50%)",
-              ...(art.right 
-                ? { right: `calc(${art.right} + 80px)`, left: "auto" } 
-                : { left: `calc(${art.left} + 80px)`, right: "auto" }),
-              maxHeight: "90vh",
-              overflowY: "auto"
-            }}
-            onClick={(e) => e.stopPropagation()}
-            ref={(el) => {
-              if (el && window.innerWidth > 767) {
-                const rect = el.getBoundingClientRect();
-                
-                if (rect.top < 80) {
-                  el.style.top = "80px";
-                  el.style.transform = "translateY(0)";
-                } 
-                else if (rect.bottom > window.innerHeight - 20) {
-                  el.style.top = "calc(100% - 20px)";
-                  el.style.transform = "translateY(-100%)";
-                }
-              }
-            }}
-          >
-            <h3 className="font-sans font-bold text-[15px] md:text-[16px] text-[#1A1A1A] mb-2 leading-tight">
-              {lang === "es" ? art.questionEs : art.questionEn}
-            </h3>
-            <p className="font-sans font-normal text-[#333333] text-[13px] md:text-[14px] leading-[1.6] mb-4">
-              {lang === "es" ? art.answerEs : art.answerEn}
-            </p>
-            <hr className="border-t-[1px] border-[#E0E0E0] mb-3" />
-            <div className="font-sans text-[10px] md:text-[11px] uppercase tracking-[0.1em] text-[#888888] mb-1">
-              {art.author}
-            </div>
-            <a 
-              href={art.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-sans font-bold text-[13px] md:text-[14px] text-[#1A1A1A] underline underline-offset-[3px] hover:text-[#555555] transition-colors inline-block"
+          <>
+            {/* Mobile Backdrop */}
+            <div 
+              className="md:hidden fixed inset-0 z-[90] bg-[#f8f6ee]/70 backdrop-blur-[8px]"
+              onClick={(e) => { e.stopPropagation(); setActiveObj(null); }}
+            />
+            {/* Modal */}
+            <div 
+              className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:absolute md:top-[var(--md-modal-top)] md:left-[var(--md-modal-left)] md:right-[var(--md-modal-right)] md:translate-x-0 bg-white p-[32px] md:p-[24px] rounded-[24px] md:rounded-[14px] shadow-[0_24px_48px_rgba(0,0,0,0.12)] md:shadow-[0_12px_24px_rgba(0,0,0,0.12)] border-[1.5px] md:border-[1px] border-[#1A1A1A] z-[100] cursor-default pointer-events-auto flex flex-col gap-4 md:gap-0 w-[90%] max-w-[360px] md:w-[280px]"
+              style={{
+                "--md-modal-top": `calc(${art.top} + 48px)`,
+                "--md-modal-left": art.left ? `calc(${art.left} + 80px)` : "auto",
+                "--md-modal-right": art.right ? `calc(${art.right} + 80px)` : "auto",
+              } as React.CSSProperties}
+              onClick={(e) => e.stopPropagation()}
             >
-              {art.title}
-            </a>
-          </div>
+              
+              {/* Mobile Close Button */}
+              <button 
+                onClick={() => setActiveObj(null)}
+                className="md:hidden absolute top-4 right-4 w-10 h-10 flex items-center justify-center text-[#8A8A8A] text-2xl bg-white/50 rounded-full"
+              >
+                ×
+              </button>
+
+              <h3 className="font-sans font-bold text-[18px] md:text-[16px] text-[#1A1A1A] mb-1 md:mb-2 leading-tight pr-6 md:pr-0">
+                {lang === "es" ? art.questionEs : art.questionEn}
+              </h3>
+              <p className="font-sans font-normal text-[#555555] text-[15px] md:text-[14px] leading-[1.65] mb-2 md:mb-4 text-pretty">
+                {lang === "es" ? art.answerEs : art.answerEn}
+              </p>
+              <hr className="border-t-[1px] border-[#E0E0E0] mb-3 hidden md:block" />
+              <div className="font-sans text-[11px] uppercase tracking-[0.1em] text-[#888888] mb-1 mt-auto md:mt-0">
+                {art.author}
+              </div>
+              <a 
+                href={art.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-sans font-bold text-[14px] text-[#1A1A1A] underline underline-offset-[3px] hover:text-[#555555] transition-colors inline-block"
+              >
+                {art.title}
+              </a>
+            </div>
+          </>
         );
       })()}
     </div>

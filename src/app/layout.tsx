@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={`${poppins.variable} antialiased font-poppins`}>
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col overflow-x-hidden">
         <Providers>
           <Header />
           <div style={{ position: "relative", zIndex: 10, flex: "1 1 auto", display: "flex", flexDirection: "column" }}>

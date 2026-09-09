@@ -29,10 +29,7 @@ export function Footer() {
       }}
     >
       <span>© 2026 Sfumato Society</span>
-      <div style={{ display: "flex", flexWrap: "wrap", gap: "24px" }}>
-        <a href="mailto:paulamacouzet@gmail.com" style={{ color: "#1A1A1A" }}>
-          Email
-        </a>
+      <div style={{ display: "flex", flexWrap: "nowrap", gap: "clamp(12px, 3vw, 24px)", whiteSpace: "nowrap" }}>
         <Link href="/about" style={{ color: "#1A1A1A" }}>
           {t.navPaula}
         </Link>
@@ -40,7 +37,7 @@ export function Footer() {
           {t.navContact}
         </Link>
         <a href="https://www.instagram.com/sfumatosociety/" target="_blank" rel="noopener noreferrer" style={{ color: "#1A1A1A" }}>
-          Instagram
+          IG
         </a>
         <a href="https://sfumatosociety.substack.com/" target="_blank" rel="noopener noreferrer" style={{ color: "#1A1A1A" }}>
           Substack

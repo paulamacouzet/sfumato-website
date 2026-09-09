@@ -64,29 +64,9 @@ export function SubscribeModal() {
 
   const t = COPY[lang];
 
-  const subscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const subscribe = () => {
     if (!email.trim()) return;
-    
-    setStatus("loading");
-    
-    const body = new URLSearchParams({
-      email: email.trim(),
-      first_url: "https://sfumatosociety.substack.com",
-      domain: "sfumatosociety.substack.com"
-    });
-    
-    try {
-      await fetch("https://sfumatosociety.substack.com/api/v1/free", {
-        method: "POST",
-        mode: "no-cors",
-        body
-      });
-      setStatus("done");
-      setEmail("");
-    } catch (err) {
-      setStatus("error");
-    }
+    setStatus("done");
   };
 
   if (!isOpen) return null;
@@ -166,51 +146,60 @@ export function SubscribeModal() {
             <p style={{ margin: 0, fontSize: "15px", lineHeight: 1.7, color: "#555555", textWrap: "pretty" }}>
               {t.joinBody}
             </p>
-            
-            <form onSubmit={subscribe} style={{ marginTop: "12px", display: "flex", flexDirection: "column", gap: "12px" }}>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder={t.emailPlaceholder}
-                disabled={status === "loading"}
-                style={{
-                  width: "100%",
-                  height: "54px",
-                  padding: "0 20px",
-                  fontFamily: "var(--font-poppins)",
-                  fontSize: "15px",
-                  color: "#1A1A1A",
-                  background: "#FFFFFF",
-                  border: "1.5px solid #1A1A1A",
-                  borderRadius: "999px",
-                  outline: "none",
-                  textAlign: "center"
-                }}
-              />
-              <button
-                type="submit"
-                disabled={status === "loading"}
-                className="hover:bg-transparent hover:text-[#1A1A1A]"
-                style={{
-                  width: "100%",
-                  height: "54px",
-                  fontFamily: "var(--font-poppins)",
-                  fontSize: "15px",
-                  fontWeight: 500,
-                  color: "#FFFFFF",
-                  background: "#1A1A1A",
-                  border: "1.5px solid #1A1A1A",
-                  borderRadius: "999px",
-                  cursor: status === "loading" ? "not-allowed" : "pointer",
-                  transition: "all .24s ease",
-                  opacity: status === "loading" ? 0.7 : 1,
-                }}
+            {status === "idle" && (
+              <form 
+                action="https://sfumatosociety.substack.com/api/v1/free?nojs=true"
+                method="post"
+                target="_blank"
+                onSubmit={subscribe}
+                style={{ display: "flex", flexDirection: "column", gap: "12px", marginTop: "8px" }}
               >
-                {status === "loading" ? t.sending : t.subscribe}
-              </button>
-            </form>
+                <input type="hidden" name="first_url" value="https://sfumatosociety.substack.com" />
+                <input type="hidden" name="first_referrer" value="https://sfumatosociety.substack.com" />
+                <input type="hidden" name="current_url" value="https://sfumatosociety.substack.com" />
+                <input type="hidden" name="current_referrer" value="https://sfumatosociety.substack.com" />
+                <input 
+                  type="email" 
+                  name="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder={t.emailPlaceholder}
+                  disabled={status === "loading"}
+                  style={{
+                    width: "100%",
+                    height: "54px",
+                    padding: "0 20px",
+                    fontFamily: "var(--font-poppins)",
+                    fontSize: "15px",
+                    color: "#1A1A1A",
+                    background: "#FFFFFF",
+                    border: "1.5px solid #1A1A1A",
+                    borderRadius: "999px",
+                    outline: "none",
+                    textAlign: "center"
+                  }}
+                />
+                <button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="hover:bg-transparent hover:text-[#1A1A1A]"
+                  style={{
+                    width: "100%",
+                    padding: "16px",
+                    borderRadius: "100px",
+                    background: "#1A1A1A",
+                    color: "#FFFFFF",
+                    fontSize: "14px",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                    transition: "all 0.2s ease",
+                  }}
+                >
+                  {t.subscribe}
+                </button>
+              </form>
+            )}
             {status === "error" && (
               <p style={{ margin: 0, fontSize: "13px", color: "#F3A712" }}>{t.emailError}</p>
             )}
@@ -219,7 +208,7 @@ export function SubscribeModal() {
           <div style={{ animation: "sfFadeIn .4s ease both", display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}>
             <div style={{ width: "100%", maxWidth: "340px", aspectRatio: "4/3", position: "relative" }}>
                <Image 
-                 src={lang === "en" ? "/assets/tribe-success-en.png" : "/assets/tribe-success-es.png"} 
+                 src={lang === "en" ? "/assets/Popup_tribu_ENG_v2.png" : "/assets/tribe-success-es.png"} 
                  alt="Tribe Success" 
                  fill 
                  style={{ objectFit: "contain" }}
