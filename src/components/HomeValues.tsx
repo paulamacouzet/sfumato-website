@@ -125,8 +125,8 @@ export function HomeValues() {
             gap: 24px;
           }
           .value-card-wrapper {
-            height: clamp(220px, 40vh, 440px);
-            max-height: 480px;
+            height: calc(100% - 80px);
+            max-height: 420px;
             width: auto;
             aspect-ratio: 16 / 10;
             max-width: 80%;
