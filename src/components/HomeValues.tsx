@@ -75,7 +75,7 @@ export function HomeValues() {
       wrapStyle: {
         position: "absolute" as const,
         left: "50%",
-        top: "4px",
+        top: "50%",
         zIndex: 10 + i,
         transformOrigin: "top center",
         willChange: "transform",
@@ -109,7 +109,7 @@ export function HomeValues() {
           
           /* Mobile Sticky Stack Animation */
           --mobile-y: calc((1 - var(--p)) * 130vh);
-          transform: translateX(-50%) translateY(var(--mobile-y)) !important;
+          transform: translateX(-50%) translateY(calc(-50% + var(--mobile-y))) !important;
         }
         .desktop-card {
           display: none;
@@ -136,7 +136,7 @@ export function HomeValues() {
             --dy: calc(var(--dt-land-y) + (1 - var(--p)) * 30px);
             --drot: calc(var(--dt-rot) + (1 - var(--p)) * 8deg);
             --dscale: calc(0.96 + var(--p) * 0.04);
-            transform: translateX(-50%) translate(var(--dx), var(--dy)) rotate(var(--drot)) scale(var(--dscale)) !important;
+            transform: translateX(-50%) translateY(-50%) translate(var(--dx), var(--dy)) rotate(var(--drot)) scale(var(--dscale)) !important;
           }
           .desktop-card {
             display: block;
