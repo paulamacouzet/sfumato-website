@@ -165,7 +165,6 @@ export function SubscribeModal() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder={t.emailPlaceholder}
-                  disabled={status === "loading"}
                   style={{
                     width: "100%",
                     height: "54px",
@@ -182,7 +181,6 @@ export function SubscribeModal() {
                 />
                 <button
                   type="submit"
-                  disabled={status === "loading"}
                   className="hover:bg-transparent hover:text-[#1A1A1A]"
                   style={{
                     width: "100%",
