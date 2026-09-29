@@ -206,7 +206,7 @@ export function SubscribeModal() {
           <div style={{ animation: "sfFadeIn .4s ease both", display: "flex", flexDirection: "column", alignItems: "center", gap: "20px" }}>
             <div style={{ width: "100%", maxWidth: "340px", aspectRatio: "4/3", position: "relative" }}>
                <Image 
-                 src={lang === "en" ? "/assets/Popup_tribu_ENG_v2.png" : "/assets/tribe-success-es.png"} 
+                 src={lang === "en" ? "/assets/Popup_tribu_ENG_v2.webp" : "/assets/tribe-success-es.webp"} 
                  alt="Tribe Success" 
                  fill 
                  style={{ objectFit: "contain" }}

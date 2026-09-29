@@ -177,9 +177,9 @@ export function AboutCanvas() {
       <div className="md:absolute md:top-[2vh] md:left-1/2 md:-translate-x-1/2 flex flex-col items-center z-20 px-6 max-w-[540px] md:pointer-events-none text-center mx-auto relative flex-shrink shrink-0 w-full">
         <div className="mb-4 md:mb-6 shrink-0">
           {lang === "es" ? (
-             <Image src="/assets/hola-soy-paula-es.png" alt="Hola soy Paula" width={360} height={120} className="w-auto h-12 md:h-[72px] object-contain" />
+             <Image src="/assets/hola-soy-paula-es.webp" alt="Hola soy Paula" width={360} height={120} className="w-auto h-12 md:h-[72px] object-contain" />
           ) : (
-             <Image src="/assets/hola-soy-paula-en.png" alt="Hi I'm Paula" width={360} height={120} className="w-auto h-12 md:h-[72px] object-contain" />
+             <Image src="/assets/hola-soy-paula-en.webp" alt="Hi I'm Paula" width={360} height={120} className="w-auto h-12 md:h-[72px] object-contain" />
           )}
         </div>
         <p className="text-[#555555] text-[14px] md:text-[16px] leading-[1.65] mb-2 text-pretty">

@@ -108,10 +108,10 @@ export default function Home() {
           {/* Background Collages */}
           {/* Collage 1 */}
           <div className="absolute inset-0 pointer-events-none z-0 hidden md:block">
-            <Image src="/assets/collage-desktop1.png" alt="Sfumato Collage" fill style={{ objectFit: "cover", objectPosition: "bottom center" }} priority />
+            <Image src="/assets/collage-desktop1.webp" alt="Sfumato Collage" fill style={{ objectFit: "cover", objectPosition: "bottom center" }} priority />
           </div>
           <div className="absolute bottom-0 w-full aspect-[393/468] md:h-full md:inset-0 pointer-events-none z-0 block md:hidden">
-            <Image src="/assets/collage-mobile1.1.png" alt="Sfumato Collage" fill style={{ objectFit: "cover", objectPosition: "bottom center" }} priority />
+            <Image src="/assets/collage-mobile1.1.webp" alt="Sfumato Collage" fill style={{ objectFit: "cover", objectPosition: "bottom center" }} priority />
           </div>
           
           {/* Collage 2 (Flashes briefly during transitions) */}
@@ -119,13 +119,13 @@ export default function Home() {
             className="absolute inset-0 pointer-events-none z-0 hidden md:block"
             style={{ opacity: hero2Opacity, transition: "opacity 0.1s ease-out" }}
           >
-            <Image src="/assets/collage-desktop2.png" alt="Sfumato Collage 2" fill style={{ objectFit: "cover", objectPosition: "bottom center" }} priority />
+            <Image src="/assets/collage-desktop2.webp" alt="Sfumato Collage 2" fill style={{ objectFit: "cover", objectPosition: "bottom center" }} priority />
           </div>
           <div 
             className="absolute bottom-0 w-full aspect-[393/468] md:h-full md:inset-0 pointer-events-none z-0 block md:hidden"
             style={{ opacity: hero2Opacity, transition: "opacity 0.1s ease-out" }}
           >
-            <Image src="/assets/collage-mobile1.2.png" alt="Sfumato Collage 2" fill style={{ objectFit: "cover", objectPosition: "bottom center" }} priority />
+            <Image src="/assets/collage-mobile1.2.webp" alt="Sfumato Collage 2" fill style={{ objectFit: "cover", objectPosition: "bottom center" }} priority />
           </div>
 
           <div style={{ width: "100%", maxWidth: "1320px", boxSizing: "border-box", margin: "0 auto", padding: "0 28px", position: "relative", zIndex: 10 }}>
@@ -135,7 +135,7 @@ export default function Home() {
               
               {/* New Hero Logo */}
               <div className="w-[80vw] max-w-[640px] md:max-w-[760px] h-[clamp(100px,25vw,220px)] relative">
-                <Image src="/assets/HeroLogo.png" alt="SFUMATO podcast" fill style={{ objectFit: "contain" }} priority />
+                <Image src="/assets/HeroLogo.webp" alt="SFUMATO podcast" fill style={{ objectFit: "contain" }} priority />
               </div>
 
               {/* Texts Container (Relative for absolute stacking) */}
@@ -189,7 +189,7 @@ export default function Home() {
                 >
                   <div className="w-[320px] h-[70px] md:w-[540px] md:h-[120px] relative">
                     <Image 
-                      src={lang === "es" ? "/assets/Octubre2026_ESP_v2.png" : "/assets/October2026_ENG_v2.png"} 
+                      src={lang === "es" ? "/assets/Octubre2026_ESP_v2.webp" : "/assets/October2026_ENG_v2.webp"} 
                       alt={copy.date} 
                       fill 
                       style={{ objectFit: "contain" }} 
@@ -232,16 +232,16 @@ export default function Home() {
                 key={i}
                 className="group hover:-translate-y-2 transition-transform duration-300 flex-none w-[85vw] max-w-[340px] md:w-auto md:max-w-none snap-center md:snap-align-none flex flex-col items-center p-6 border-[1.5px] border-[#1A1A1A] rounded-[24px] bg-white"
               >
-                <div
-                  style={{
-                    width: "100%",
-                    aspectRatio: "1 / 1",
-                    borderRadius: "16px",
-                    backgroundImage: `url('${c.img}')`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                />
+                <div className="relative w-full aspect-square rounded-[16px] overflow-hidden">
+                  <Image
+                    src={c.img}
+                    alt={c.q}
+                    fill
+                    sizes="(max-width: 768px) 85vw, (max-width: 1200px) 30vw, 380px"
+                    className="object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
                 <p style={{ marginTop: "28px", fontSize: "15px", lineHeight: 1.6, fontWeight: 500, textAlign: "center", textWrap: "pretty" }}>{c.q}</p>
                 <p style={{ marginTop: "16px", fontSize: "14px", lineHeight: 1.6, color: "#555555", textAlign: "center", textWrap: "pretty" }}>{c.p1}</p>
                 <p

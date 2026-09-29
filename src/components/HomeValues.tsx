@@ -203,7 +203,7 @@ export function HomeValues() {
                   {/* Desktop: Horizontal Image */}
                   <div 
                     className="desktop-card w-full h-full rounded-[16px] bg-[#F7F5F0] border border-[#1A1A1A]/10 shadow-[0_12px_34px_rgba(26,26,26,0.14)] bg-cover bg-center" 
-                    style={{ backgroundImage: `url(/assets/card-${c.n}-${lang}.png)` }} 
+                    style={{ backgroundImage: `url(/assets/card-${c.n}-${lang}.webp)` }} 
                   />
                   
                   {/* Mobile: Vertical Composite Card */}
@@ -221,7 +221,7 @@ export function HomeValues() {
                         width: "100%",
                         height: "40vh",
                         minHeight: "180px", 
-                        backgroundImage: `url(/assets/mcard-${c.n}-${lang}.png)`,
+                        backgroundImage: `url(/assets/mcard-${c.n}-${lang}.webp)`,
                         backgroundSize: "contain",
                         backgroundRepeat: "no-repeat",
                         backgroundPosition: "center",
